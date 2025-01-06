@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from appearing */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+
+
+#menu-trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: transparent; /* Make it invisible but active for interaction */
+}
+
+#menu-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: opacity 0.5s, visibility 0.5s;
+    opacity: 1;
+    visibility: visible;
+}
+
+#menu-container:not(.visible) {
+    opacity: 0; /* Fade out */
+    visibility: hidden; /* Make it disappear */
+    pointer-events: none; /* Prevent interaction */
+}
+
+#menu {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#redemptions-container {
+    margin-left: 350px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sticky-note {
+    position: absolute;
+    background-image: url('Blank_note.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px;
+    color: #333;
+    font-weight: bold;
+    transform: rotate(calc(var(--rotation, 0) * 1deg));
+    animation: fadeIn 0.5s ease-in-out;
+    cursor: grab; /* Indicate draggable element */
+}
+
+.sticky-note:active {
+    cursor: grabbing; /* Change cursor while dragging */
+}
+
+.sticky-note:hover .delete-icon {
+    display: block; /* Show delete icon on hover */
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url('delete_icon.png');
+    background-size: cover;
+    cursor: pointer;
+    display: none; /* Hide delete icon by default */
+}
+
+.username {
+    display: inline-block;
+    text-align: center;
+    transform-origin: center; /* Rotate around the center of the text */
+    word-wrap: break-word;
+    width: 90%; /* Ensure it fits within the sticky note */
+    margin: auto; /* Center the text */
+    position: relative; /* Ensure proper positioning */
+    transform: rotate(10deg); /* Rotate text 10 degrees */
+}
+
+#connection-status {
+    font-weight: bold;
+}
+
+#connection-status.connected {
+    color: green; /* Green for Connected */
+}
+
+#connection-status.disconnected {
+    color: red; /* Red for Disconnected */
+}
+

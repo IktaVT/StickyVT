@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IktaVT Note 0.1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="menu-trigger">
+    <div id="menu-container" class="visible">
+        <div id="menu">
+            <h3>Settings</h3>
+            <label>OAuth Token:</label>
+            <input id="oauth-token" type="password" placeholder="Enter OAuth Token" />
+            <br>
+            <label>Client ID:</label>
+            <input id="client-id" type="password" placeholder="Enter Client ID" />
+            <br>
+            <label>User ID:</label>
+            <input id="user-id" type="password" placeholder="Enter User ID" />
+            <br><br>
+            <h3>Enable Events</h3>
+            <label><input type="checkbox" id="tier1-checkbox" /> Tier 1</label><br>
+            <label><input type="checkbox" id="tier2-checkbox" /> Tier 2</label><br>
+            <label><input type="checkbox" id="tier3-checkbox" /> Tier 3</label><br>
+            <label>
+                <input type="checkbox" id="channel-redeem-checkbox" />
+                Channel Redeem
+            </label>
+            <input id="channel-redeem-input" type="text" placeholder="Enter Channel Redeem Name" />
+            <br>
+            <button id="save-settings">Save Settings</button>
+            <button id="simulate-subscription">Simulate Subscription</button>
+            <button id="simulate-redeem">Simulate Channel Redeem</button>
+            <h4 id="status-display">Status: <span id="connection-status">Disconnected</span></h4>
+        </div>
+    </div>
+</div>
+
+    <div id="redemptions-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
