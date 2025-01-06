@@ -74,11 +74,9 @@ Once configured, your sticky notes will appear for live events during your strea
 
 # Heres How to get the oAuth Token , Client_ID and User_ID
 
-### Get Bot oAuth Token at [TwitchTokenGenerator](https://www.twitchtokengenerator.com/):
+### Get Bot oAuth Token and Client ID at [TwitchTokenGenerator](https://www.twitchtokengenerator.com/):
 - Be sure that it has channel:read:subscriptions , channel:read:redemptions , bits:read
 
 ### Get User_ID at [Streamweasals](https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/)
 - At The Bottom you can Convert your Twitch Name into the User_ID
 
-### Get Client_ID at [Twitch Dev Console](https://dev.twitch.tv/console/extensions/)
-- Create an Extension and on the Top Right it should say (Client ID)
