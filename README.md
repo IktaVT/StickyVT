@@ -3,6 +3,11 @@ Bring your Twitch stream to life with vibrant, customizable sticky notes for rea
 
 ---
 
+# 🎥 Demo
+
+https://github.com/user-attachments/assets/2b8481c9-b36f-4186-b068-00599b959e4c
+
+---
 ### Twitch Integration
 - **PubSub Support**: Connect seamlessly with your Twitch account using OAuth Token, Client ID, and User ID.
 - **Subscription Tiers**: Display events for Tier 1, Tier 2, and Tier 3 subscriptions.
