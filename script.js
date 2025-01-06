@@ -131,20 +131,73 @@ function getSelectedEvents() {
     };
 }
 
-// Create a sticky note
+
+// Elements for font customization
+const fontStyleSelector = document.getElementById('font-style');
+const fontColorPicker = document.getElementById('font-color');
+
+// Function to apply font settings to a sticky note
+function applyFontSettings(note) {
+    const usernameDiv = note.querySelector('.username');
+    usernameDiv.style.fontFamily = fontStyleSelector.value;
+    usernameDiv.style.color = fontColorPicker.value;
+}
+
+
+// Elements for text outline customization
+const outlineToggle = document.getElementById('outline-toggle');
+const outlineColorPicker = document.getElementById('outline-color');
+const outlineSizeSlider = document.getElementById('outline-size');
+const outlineSizeValue = document.getElementById('outline-size-value');
+
+// Function to apply outline settings to a sticky note
+function applyOutlineSettings(note) {
+    const usernameDiv = note.querySelector('.username');
+    if (outlineToggle.checked) {
+        const outlineColor = outlineColorPicker.value;
+        const outlineSize = `${outlineSizeSlider.value}px`;
+        usernameDiv.style.textShadow = `
+            -${outlineSize} -${outlineSize} 0 ${outlineColor},
+            ${outlineSize} -${outlineSize} 0 ${outlineColor},
+            -${outlineSize} ${outlineSize} 0 ${outlineColor},
+            ${outlineSize} ${outlineSize} 0 ${outlineColor}
+        `;
+    } else {
+        usernameDiv.style.textShadow = 'none';
+    }
+}
+
+// Event listeners for outline settings
+outlineToggle.addEventListener('change', () => {
+    outlineColorPicker.disabled = !outlineToggle.checked;
+    outlineSizeSlider.disabled = !outlineToggle.checked;
+    const notes = document.querySelectorAll('.sticky-note');
+    notes.forEach(applyOutlineSettings);
+});
+
+outlineColorPicker.addEventListener('input', () => {
+    const notes = document.querySelectorAll('.sticky-note');
+    notes.forEach(applyOutlineSettings);
+});
+
+outlineSizeSlider.addEventListener('input', () => {
+    outlineSizeValue.textContent = `${outlineSizeSlider.value}px`;
+    const notes = document.querySelectorAll('.sticky-note');
+    notes.forEach(applyOutlineSettings);
+});
+
+
+// Modify the createStickyNote function to apply font and outline settings
 function createStickyNote(username) {
     const note = document.createElement('div');
     note.className = 'sticky-note';
     note.style.left = '100px';
     note.style.top = '100px';
-    note.style.width = '500px'; // Default width
-    note.style.height = '500px'; // Default height
+    note.style.width = '200px';
+    note.style.height = '200px';
 
     const usernameDiv = document.createElement('div');
     usernameDiv.textContent = username;
-	    // Apply a specific rotation of 10 degrees to the username
-    usernameDiv.style.transform = `rotate(10deg)`;
-
     usernameDiv.className = 'username';
 
     const deleteIcon = document.createElement('div');
@@ -155,9 +208,22 @@ function createStickyNote(username) {
     note.appendChild(deleteIcon);
     container.appendChild(note);
 
-    adjustFontSize(usernameDiv, note); // Adjust font size initially
+    applyFontSettings(note); // Apply selected font settings
+    applyOutlineSettings(note); // Apply selected outline settings
+    adjustFontSize(usernameDiv, note);
     makeStickyNoteDraggableAndResizable(note);
 }
+
+// Event listeners to update font settings on change
+fontStyleSelector.addEventListener('change', () => {
+    const notes = document.querySelectorAll('.sticky-note');
+    notes.forEach(applyFontSettings);
+});
+
+fontColorPicker.addEventListener('input', () => {
+    const notes = document.querySelectorAll('.sticky-note');
+    notes.forEach(applyFontSettings);
+});
 
 
 // Adjust font size based on note dimensions
