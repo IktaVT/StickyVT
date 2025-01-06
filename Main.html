@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Open+Sans&family=Lato&family=Oswald&family=Montserrat&family=Source+Sans+Pro&family=Raleway&family=PT+Sans&display=swap" rel="stylesheet">
+
     <title>IktaVT Note 0.1</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -34,11 +36,44 @@
             <button id="simulate-subscription">Simulate Subscription</button>
             <button id="simulate-redeem">Simulate Channel Redeem</button>
             <h4 id="status-display">Status: <span id="connection-status">Disconnected</span></h4>
+            <h3>Font Settings</h3>
+<label for="font-style">Font Style:</label>
+<select id="font-style">
+    <!-- Web-Safe Fonts -->
+    <option value="Arial" style="font-family: Arial;">Arial</option>
+    <option value="Verdana" style="font-family: Verdana;">Verdana</option>
+    <option value="Tahoma" style="font-family: Tahoma;">Tahoma</option>
+    <option value="Trebuchet MS" style="font-family: 'Trebuchet MS';">Trebuchet MS</option>
+    <option value="Georgia" style="font-family: Georgia;">Georgia</option>
+    <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
+    <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
+    <option value="Brush Script MT" style="font-family: 'Brush Script MT';">Brush Script MT</option>
+    <!-- Google Fonts -->
+    <option value="Roboto" style="font-family: Roboto;">Roboto</option>
+    <option value="Open Sans" style="font-family: 'Open Sans';">Open Sans</option>
+    <option value="Lato" style="font-family: Lato;">Lato</option>
+    <option value="Oswald" style="font-family: Oswald;">Oswald</option>
+    <option value="Montserrat" style="font-family: Montserrat;">Montserrat</option>
+    <option value="Source Sans Pro" style="font-family: 'Source Sans Pro';">Source Sans Pro</option>
+    <option value="Raleway" style="font-family: Raleway;">Raleway</option>
+    <option value="PT Sans" style="font-family: 'PT Sans';">PT Sans</option>
+</select>
+
+            <br><br>
+            <label for="font-color">Font Color:</label>
+            <input type="color" id="font-color" value="#333333" />
+<label for="outline-toggle">Enable Outline:</label>
+<input type="checkbox" id="outline-toggle" />
+<label for="outline-color">Outline Color:</label>
+<input type="color" id="outline-color" value="#000000" disabled />
+<label for="outline-size">Outline Size:</label>
+<input type="range" id="outline-size" min="0" max="10" value="1" disabled />
+<span id="outline-size-value">1px</span>
         </div>
     </div>
 </div>
 
-    <div id="redemptions-container"></div>
-    <script src="script.js"></script>
+<div id="redemptions-container"></div>
+<script src="script.js"></script>
 </body>
 </html>
